@@ -2,6 +2,8 @@ on:
   release:
     types: [created]
 
+name: Build and publish
+
 jobs:
   build-publish:
     name: Build and publish
