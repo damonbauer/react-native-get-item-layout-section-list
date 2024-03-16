@@ -84,7 +84,7 @@ const HeadersAndFooters = () => {
         renderSectionHeader={({section: {title}}) => (
           <Text style={styles.header}>{title}</Text>
         )}
-        renderSectionFooter={({section: {data, title}}) => (
+        renderSectionFooter={({section: {data}}) => (
           <Text style={styles.footer}>Total items: {data.length}</Text>
         )}
         sections={DATA}

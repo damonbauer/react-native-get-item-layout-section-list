@@ -23,26 +23,33 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/damonbauer/react-native-get-item-layout-section-list.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/damonbauer/react-native-get-item-layout-section-list/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/damonbauer/react-native-get-item-layout-section-list",
   "scripts": {
+    "build": "tsc --noEmit --emitDeclarationOnly false && vite build && tsc",
+    "lint": "eslint src/index.ts --cache",
+    "lint:fix": "eslint src/index.ts --fix --cache",
     "start": "vite",
     "test": "vitest",
-    "build": "npm run format && tsc --noEmit --emitDeclarationOnly false && vite build && tsc",
-    "format": "prettier --write src/index.ts"
+    "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@types/react-native": "^0.73.0",
-    "@vitest/coverage-v8": "^1.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitest/coverage-v8": "^1.4.0",
     "@vitest/ui": "^1.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5",
-    "terser": "^5.29.1",
+    "terser": "^5.29.2",
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
-    "vitest": "^1.3.1"
+    "vitest": "^1.4.0"
   }
 }

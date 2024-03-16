@@ -1,0 +1,31 @@
+on:
+  push:
+    branches-ignore:
+      - master
+
+permissions:
+  contents: read
+  pull-requests: write
+
+name: PR:Checks
+
+jobs:
+  run_checks:
+    name: Run Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.16.1
+          registry-url: "https://registry.npmjs.org"
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm run test:coverage
+
+      - uses: davelosert/vitest-coverage-report-action@v2
+        if: always()

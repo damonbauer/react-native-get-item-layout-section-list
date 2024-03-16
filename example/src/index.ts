@@ -1,4 +1,4 @@
-import {SectionListData} from 'react-native';
+import type {SectionListData} from 'react-native';
 
 type GetItemLayoutParams<T> = {
   getItemHeight:
@@ -19,13 +19,16 @@ type GetItemLayoutShape = {
   index: number;
 };
 
-const resolveValue = <T, Args extends any[]>(
+const resolveValue = <T, Args extends unknown[]>(
   value: T | ((...args: Args) => T),
   ...args: Args
-): T => (typeof value === 'function' ? (value as Function)(...args) : value);
+): T =>
+  typeof value === 'function'
+    ? (value as (...args: Args) => T)(...args)
+    : value;
 
 const getItemLayout =
-  <T = any>({
+  <T>({
     getItemHeight,
     getItemSeparatorHeight = 0,
     getSectionHeaderHeight = 0,

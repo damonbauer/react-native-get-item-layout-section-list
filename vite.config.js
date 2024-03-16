@@ -3,8 +3,10 @@ import path from "path";
 
 export default defineConfig({
   test: {
+    reporters: process.env.GITHUB_ACTIONS ? ["dot", "github-actions"] : ["dot"],
     coverage: {
       reporter: ["default", "text", "json", "html"],
+      reportOnFailure: true,
     },
   },
   build: {
