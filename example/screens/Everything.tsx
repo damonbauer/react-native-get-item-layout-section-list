@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {Pressable, SectionList, StyleSheet, Text, View} from 'react-native';
-import getItemLayout from '../src';
+import getItemLayout from 'react-native-get-item-layout-section-list';
 
 const DATA = [
   {
@@ -70,7 +70,7 @@ const buildGetItemLayout = getItemLayout({
   getSectionHeaderHeight: SECTION_HEADER_HEIGHT,
   getSectionFooterHeight: SECTION_FOOTER_HEIGHT,
   getSectionSeparatorHeight: SECTION_SEPARATOR_HEIGHT,
-  listHeaderHeight: LIST_HEADER_HEIGHT,
+  getListHeaderHeight: LIST_HEADER_HEIGHT,
 });
 
 const ListHeader = () => (

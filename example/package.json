@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.1"
+    "react-native": "0.73.1",
+    "react-native-get-item-layout-section-list": "file:../src"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -7,10 +7,10 @@ type GetItemLayoutParams<T> = {
   getItemSeparatorHeight?:
     | number
     | ((sectionIndex: number, rowIndex: number) => number);
+  getListHeaderHeight?: number | (() => number);
   getSectionHeaderHeight?: number | ((sectionIndex: number) => number);
   getSectionFooterHeight?: number | ((sectionIndex: number) => number);
   getSectionSeparatorHeight?: number | ((sectionIndex: number) => number);
-  listHeaderHeight?: number | (() => number);
 };
 
 type GetItemLayoutShape = {
@@ -34,7 +34,7 @@ const getItemLayout =
     getSectionHeaderHeight = 0,
     getSectionFooterHeight = 0,
     getSectionSeparatorHeight = 0,
-    listHeaderHeight = 0,
+    getListHeaderHeight = 0,
   }: GetItemLayoutParams<T>) =>
   (data: SectionListData<T>[] | null, index: number): GetItemLayoutShape => {
     if (!data || !data.length) {
@@ -42,7 +42,7 @@ const getItemLayout =
     }
 
     // Start with the offset set to the height of the list header.
-    let offset = resolveValue(listHeaderHeight);
+    let offset = resolveValue(getListHeaderHeight);
     // Initialize the global index counter to track overall position within the list.
     let globalIndex = 0;
 
@@ -108,8 +108,7 @@ const getItemLayout =
 
       // Handle the section footer.
       if (index === globalIndex) {
-        const length = currentSectionFooterHeight;
-        return { length, offset, index };
+        return { length: currentSectionFooterHeight, offset, index };
       }
       offset += currentSectionFooterHeight;
       globalIndex++;

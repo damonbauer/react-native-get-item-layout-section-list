@@ -3,6 +3,22 @@
 Create the `getItemLayout` prop for a `SectionList` with React Native.
 
 ![NPM Version](https://img.shields.io/npm/v/react-native-get-item-layout-section-list?registry_uri=https%3A%2F%2Fregistry.npmjs.org&logo=npm)
+![NPM Downloads](https://img.shields.io/npm/dm/react-native-get-item-layout-section-list?logo=npm)
+
+<!-- TOC -->
+* [react-native-get-item-layout-section-list](#react-native-get-item-layout-section-list)
+  * [Motivation](#motivation)
+    * [Background](#background)
+    * [Why this library?](#why-this-library)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    * [Basic](#basic)
+    * [Advanced](#advanced)
+  * [Examples](#examples)
+  * [Contributing](#contributing)
+  * [Releasing](#releasing)
+  * [License](#license)
+<!-- TOC -->
 
 ## Motivation
 ### Background
@@ -32,20 +48,16 @@ This example shows how to use the `getItemLayout` prop with fixed heights.
 ```tsx
 import getItemLayout from 'react-native-get-item-layout-section-list';
 
-
 const ITEM_HEIGHT = 60;
-const ITEM_SEPARATOR_HEIGHT = 5;
 const SECTION_HEADER_HEIGHT = 40;
 
 const buildGetItemLayout = getItemLayout({
   getItemHeight: ITEM_HEIGHT,
-  getItemSeparatorHeight: ITEM_SEPARATOR_HEIGHT,
   getSectionHeaderHeight: SECTION_HEADER_HEIGHT,
 });
 
 <SectionList
   getItemLayout={buildGetItemLayout} 
-  ItemSeparatorComponent={ItemSeparator} 
   keyExtractor={(item, index) => item + index} 
   renderItem={({item}) => (
     <View style={styles.item}>
@@ -63,7 +75,31 @@ const buildGetItemLayout = getItemLayout({
 This example shows how to use the `getItemLayout` prop with dynamic heights.
 
 ```tsx
-// TODO
+import getItemLayout from 'react-native-get-item-layout-section-list';
+
+const SECTION_HEADER_HEIGHT = 40;
+
+const buildGetItemLayout = getItemLayout({
+  getItemHeight: (_data, index) => {
+    // Return a different height for even and odd items
+    return index % 2 === 0 ? 60 : 40;
+  },
+  getSectionHeaderHeight: SECTION_HEADER_HEIGHT,
+});
+
+<SectionList
+  getItemLayout={buildGetItemLayout}
+  keyExtractor={(item, index) => item + index}
+  renderItem={({item}) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{item}</Text>
+    </View>
+  )}
+  renderSectionHeader={({section: {title}}) => (
+    <Text style={styles.header}>{title}</Text>
+  )}
+  sections={DATA}
+/>
 ````
 
 ## Examples

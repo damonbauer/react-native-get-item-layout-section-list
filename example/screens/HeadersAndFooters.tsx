@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {Pressable, SectionList, StyleSheet, Text, View} from 'react-native';
-import getItemLayout from '../src';
+import getItemLayout from 'react-native-get-item-layout-section-list';
 
 const DATA = [
   {
