@@ -102,7 +102,7 @@ If you'd like to actually run the examples, clone the repository and run the fol
 ```sh
 cd example
 npm install && pod install
-npm run ios # or npm run android
+npm run ios
 ```
 
 ## Contributing
