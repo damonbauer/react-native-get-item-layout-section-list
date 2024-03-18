@@ -3,25 +3,18 @@
 Create the `getItemLayout` prop for a `SectionList` with React Native.
 
 ![NPM Version](https://img.shields.io/npm/v/react-native-get-item-layout-section-list?registry_uri=https%3A%2F%2Fregistry.npmjs.org&logo=npm)
-![NPM Downloads](https://img.shields.io/npm/dm/react-native-get-item-layout-section-list?logo=npm)
 
-<!-- TOC -->
-* [react-native-get-item-layout-section-list](#react-native-get-item-layout-section-list)
-  * [Motivation](#motivation)
-    * [Background](#background)
-    * [Why this library?](#why-this-library)
-  * [Installation](#installation)
-  * [Usage](#usage)
-    * [Basic](#basic)
-    * [Advanced](#advanced)
-  * [Examples](#examples)
-  * [Contributing](#contributing)
-  * [Releasing](#releasing)
-  * [License](#license)
-<!-- TOC -->
-
+* [Motivation](#motivation)
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Basic](#basic)
+  * [Advanced](#advanced)
+* [Examples](#examples)
+* [Contributing](#contributing)
+* [Releasing](#releasing)
+* [License](#license)
+  
 ## Motivation
-### Background
 The `getItemLayout` prop in a `SectionList` is an optimization prop that improves performance of the list by helping it to quickly calculate the size and position of its items.
 
 When you provide the `getItemLayout` prop, React Native can:
@@ -31,7 +24,6 @@ When you provide the `getItemLayout` prop, React Native can:
 * Reduce the need for dynamic measurement as users scroll, leading to smoother experiences.
 * Access other props, such as `initialScrollIndex` and `scrollToLocation`
 
-### Why this library?
 The `getItemLayout` prop is not trivial to implement for a `SectionList`. This library provides a simple way to create the `getItemLayout` prop for a `SectionList` with fixed or dynamic heights.
 
 ## Installation
@@ -80,9 +72,9 @@ import getItemLayout from 'react-native-get-item-layout-section-list';
 const SECTION_HEADER_HEIGHT = 40;
 
 const buildGetItemLayout = getItemLayout({
-  getItemHeight: (_item, _sectionIndex, itemIndex) => {
+  getItemHeight: (_item, sectionIndex, _itemIndex) => {
     // Return a different height for even and odd items
-    return itemIndex % 2 === 0 ? 60 : 40;
+    return sectionIndex % 2 === 0 ? 60 : 40;
   },
   getSectionHeaderHeight: SECTION_HEADER_HEIGHT,
 });
