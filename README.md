@@ -2,7 +2,9 @@
 
 Create the `getItemLayout` prop for a `SectionList` with React Native.
 
-![NPM Version](https://img.shields.io/npm/v/react-native-get-item-layout-section-list?registry_uri=https%3A%2F%2Fregistry.npmjs.org&logo=npm)
+[![NPM Version](https://img.shields.io/npm/v/react-native-get-item-layout-section-list?registry_uri=https%3A%2F%2Fregistry.npmjs.org&logo=npm)](https://www.npmjs.com/package/react-native-get-item-layout-section-list)
+[![NPM Downloads](https://img.shields.io/npm/dm/react-native-get-item-layout-section-list?logo=npm)](https://www.npmjs.com/package/react-native-get-item-layout-section-list)
+![GitHub License](https://img.shields.io/github/license/damonbauer/react-native-get-item-layout-section-list)
 
 * [Motivation](#motivation)
 * [Installation](#installation)
