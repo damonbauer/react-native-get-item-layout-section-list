@@ -6,7 +6,7 @@ export default defineConfig({
       all: true,
       include: ["src"],
       provider: "v8",
-      reporter: ["html", "json", "text"],
+      reporter: ["html", "json", "json-summary", "text"],
       reportOnFailure: true,
     },
     reporters: process.env.GITHUB_ACTIONS
