@@ -80,9 +80,9 @@ import getItemLayout from 'react-native-get-item-layout-section-list';
 const SECTION_HEADER_HEIGHT = 40;
 
 const buildGetItemLayout = getItemLayout({
-  getItemHeight: (_data, index) => {
+  getItemHeight: (_item, _sectionIndex, itemIndex) => {
     // Return a different height for even and odd items
-    return index % 2 === 0 ? 60 : 40;
+    return itemIndex % 2 === 0 ? 60 : 40;
   },
   getSectionHeaderHeight: SECTION_HEADER_HEIGHT,
 });

@@ -1,13 +1,7 @@
 {
   "name": "react-native-get-item-layout-section-list",
-  "description": "Create the getItemLayout prop for a SectionList with React Native",
-  "author": "Damon Bauer",
   "version": "0.1.0",
-  "type": "module",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "license": "MIT",
+  "description": "Create the getItemLayout prop for a SectionList with React Native",
   "keywords": [
     "react",
     "react-native",
@@ -17,20 +11,26 @@
     "get-item-layout",
     "getItemLayout"
   ],
+  "homepage": "https://github.com/damonbauer/react-native-get-item-layout-section-list",
+  "bugs": {
+    "url": "https://github.com/damonbauer/react-native-get-item-layout-section-list/issues"
+  },
+  "license": "MIT",
+  "author": "Damon Bauer <damonbauer@protonmail.com> (https://damonbauer.dev)",
+  "type": "module",
   "files": [
     "src/index.ts",
     "dist/"
   ],
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/damonbauer/react-native-get-item-layout-section-list.git"
   },
-  "bugs": {
-    "url": "https://github.com/damonbauer/react-native-get-item-layout-section-list/issues"
-  },
-  "homepage": "https://github.com/damonbauer/react-native-get-item-layout-section-list",
   "scripts": {
-    "build": "tsc --noEmit --emitDeclarationOnly false && vite build && tsc",
+    "build": "tsc --noEmit && vite build",
     "lint": "eslint src/index.ts --cache",
     "lint:fix": "eslint src/index.ts --fix --cache",
     "test": "vitest",
@@ -47,6 +47,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
+    "vite-plugin-dts": "^3.7.3",
     "vitest": "^1.4.0"
   }
 }

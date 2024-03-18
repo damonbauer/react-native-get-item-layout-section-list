@@ -61,8 +61,8 @@ const ITEM_HEIGHT = 60;
 const SECTION_HEADER_HEIGHT = 40;
 
 const buildGetItemLayout = getItemLayout({
-  getItemHeight: () => ITEM_HEIGHT,
-  getSectionHeaderHeight: () => SECTION_HEADER_HEIGHT,
+  getItemHeight: ITEM_HEIGHT,
+  getSectionHeaderHeight: SECTION_HEADER_HEIGHT,
 });
 
 const Simple = () => {
