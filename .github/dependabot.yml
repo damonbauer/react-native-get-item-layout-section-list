@@ -7,3 +7,26 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    groups:
+      vite:
+        patterns:
+          - "vite"
+          - "vite-*"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
+      typescript:
+        patterns:
+          - "typescript"
+          - "@typescript-eslint/*"
+          - "@types/*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+      prettier:
+        patterns:
+          - "prettier"
+          - "eslint-*prettier*"
