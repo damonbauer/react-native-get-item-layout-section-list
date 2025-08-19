@@ -1,4 +1,4 @@
-import type { SectionListData } from "react-native";
+import type { DefaultSectionT, SectionListData } from "react-native";
 
 export type GetItemLayoutParams<T> = {
   getItemHeight:
@@ -6,7 +6,7 @@ export type GetItemLayoutParams<T> = {
     | ((item: T, sectionIndex: number, itemIndex: number) => number);
   getItemSeparatorHeight?:
     | number
-    | ((sectionIndex: number, rowIndex: number) => number);
+    | ((sectionIndex: number, itemIndex: number) => number);
   getListHeaderHeight?: number | (() => number);
   getSectionHeaderHeight?: number | ((sectionIndex: number) => number);
   getSectionFooterHeight?: number | ((sectionIndex: number) => number);
@@ -28,16 +28,19 @@ const resolveValue = <T, Args extends unknown[]>(
     : value;
 
 const getItemLayout =
-  <T>({
+  <ItemT, SectionT = DefaultSectionT>({
     getItemHeight,
     getItemSeparatorHeight = 0,
     getSectionHeaderHeight = 0,
     getSectionFooterHeight = 0,
     getSectionSeparatorHeight = 0,
     getListHeaderHeight = 0,
-  }: GetItemLayoutParams<T>) =>
-  (data: SectionListData<T>[] | null, index: number): GetItemLayoutShape => {
-    if (!data || !data.length) {
+  }: GetItemLayoutParams<ItemT>) =>
+  (
+    data: readonly SectionListData<ItemT, SectionT>[] | null,
+    index: number,
+  ): GetItemLayoutShape => {
+    if (!data?.length || index < 0) {
       return { length: 0, offset: 0, index };
     }
 
@@ -119,3 +122,4 @@ const getItemLayout =
   };
 
 export default getItemLayout;
+export type GetItemLayoutFunction = typeof getItemLayout;
