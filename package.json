@@ -1,6 +1,6 @@
 {
   "name": "react-native-get-item-layout-section-list",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create the getItemLayout prop for a SectionList with React Native",
   "keywords": [
     "react",
