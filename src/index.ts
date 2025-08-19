@@ -40,7 +40,7 @@ const getItemLayout =
     data: readonly SectionListData<ItemT, SectionT>[] | null,
     index: number,
   ): GetItemLayoutShape => {
-    if (!data?.length || index < 0) {
+    if (!data?.length) {
       return { length: 0, offset: 0, index };
     }
 
