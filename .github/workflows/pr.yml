@@ -26,4 +26,4 @@ jobs:
       - run: npm run test:coverage
 
       - uses: davelosert/vitest-coverage-report-action@v2
-        if: always()
+        if: ${{ !cancelled() && hashFiles('coverage/coverage-summary.json') != '' }}
